@@ -1,0 +1,7 @@
+{
+  "name": "AppHistorialEnfermedades",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
