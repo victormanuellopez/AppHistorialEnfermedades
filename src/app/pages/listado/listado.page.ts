@@ -19,6 +19,7 @@ import { IonContent, IonHeader, IonTitle, IonToolbar,
 import { addIcons } from 'ionicons';
 import { add } from 'ionicons/icons';
 import { RouterLink } from '@angular/router';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-listado',
@@ -44,13 +45,23 @@ import { RouterLink } from '@angular/router';
 })
 export class ListadoPage implements OnInit {
 
-  constructor() {
+  datosRegistro: any[] = [];
 
+  constructor(private storageService: StorageService) {
+    
     addIcons({ add });
-
   }
 
   ngOnInit() {
+    this.listarDatos();
+  }
+
+  listarDatos(){
+    this.datosRegistro = this.storageService.listarRegistros();
+
+    this.datosRegistro.sort(function (a, b){
+      return a.paciente - b.paciente;
+    });
   }
 
 }

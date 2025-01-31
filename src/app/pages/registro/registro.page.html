@@ -15,17 +15,14 @@
     <ion-card-content>
       <form [formGroup]="registroForm" (ngSubmit)="agregarRegistro()">
         <ion-item>
-          <ion-label for="fecha" position="floating">Fecha</ion-label>          
-          <ion-input type="date" placeholder="Ingresa la fecha" formControlName="fecha"></ion-input>
+          <ion-input type="date" label="Fecha" label-placement="stacked" placeholder="Ingresa la fecha" formControlName="fecha"></ion-input>
         </ion-item>
         <div *ngIf="registroForm.get('fecha')?.touched && registroForm.get('email')?.invalid">
           <p *ngIf="registroForm.get('fecha')?.hasError('fecha')">Fecha es obligatorio</p>
-          
         </div>
   
         <ion-item>
-          <ion-label position="floating">Paciente</ion-label> 
-          <ion-input type="text" placeholder="Nombre del paciente" formControlName="paciente"></ion-input>
+          <ion-input type="text" label="Paciente" label-placement="stacked" placeholder="Nombre del paciente" formControlName="paciente"></ion-input>
         </ion-item>
         <div *ngIf="registroForm.get('paciente')?.touched && registroForm.get('paciente')?.invalid">
           <p *ngIf="registroForm.get('paciente')?.hasError('required')">Paciente es obligatorio</p>
@@ -34,8 +31,7 @@
         </div>
   
         <ion-item>
-          <ion-label position="floating">Doctor</ion-label>          
-          <ion-input type="text" placeholder="Nombre del Doctor" formControlName="doctor"></ion-input>
+          <ion-input type="text" label="Doctor" label-placement="stacked" placeholder="Nombre del Doctor" formControlName="doctor"></ion-input>
         </ion-item>
         <div *ngIf="registroForm.get('doctor')?.touched && registroForm.get('doctor')?.invalid">
           <p *ngIf="registroForm.get('doctor')?.hasError('required')">Doctor es obligatorio</p>
@@ -44,8 +40,7 @@
         </div>
   
         <ion-item>
-          <ion-label position="floating">Telefono</ion-label> 
-          <ion-input type="text" placeholder="Telefono del doctor" formControlName="telefono"></ion-input>
+          <ion-input type="text" label="Telefono" label-placement="stacked" placeholder="Telefono del Doctor" formControlName="telefono"></ion-input>
         </ion-item>
         <div *ngIf="registroForm.get('telefono')?.touched && registroForm.get('telefono')?.invalid">
           <p *ngIf="registroForm.get('telefono')?.hasError('required')">Telefono es obligatorio</p>
@@ -54,8 +49,7 @@
         </div>
   
         <ion-item>
-          <ion-label position="floating">Malestar/Sintomas</ion-label> 
-          <ion-input type="text" placeholder="Describa el malestar presentado" formControlName="malestar"></ion-input>
+          <ion-input type="text" label="Malestar/Sintomas" label-placement="stacked" placeholder="Describa el malestar presentado" formControlName="malestar"></ion-input>
         </ion-item>
         <div *ngIf="registroForm.get('malestar')?.touched && registroForm.get('malestar')?.invalid">
           <p *ngIf="registroForm.get('malestar')?.hasError('required')">Malestar/Sintomas es obligatorio</p>

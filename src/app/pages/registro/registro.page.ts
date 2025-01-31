@@ -13,6 +13,7 @@ import { IonContent, IonHeader, IonTitle, IonToolbar,
   IonButton
 } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-registro',
@@ -37,7 +38,7 @@ export class RegistroPage implements OnInit {
 
   registroForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, private router: Router, private storageService: StorageService) {
     
     this.registroForm = this.fb.group({
       fecha: ['', [Validators.required]],
@@ -52,7 +53,13 @@ export class RegistroPage implements OnInit {
   }
 
   agregarRegistro(){
-    
+    if(this.registroForm.valid){
+      const datos = this.registroForm.value;
+      this.storageService.guardarRegistro(datos);
+      this.router.navigateByUrl('/listado');
+    }else{
+      console.log("Formulario no valido");
+    }
   }
 
 }
