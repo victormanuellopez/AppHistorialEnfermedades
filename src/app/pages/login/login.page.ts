@@ -53,6 +53,7 @@ export class LoginPage implements OnInit {
         sessionStorage.setItem('isLoggedIn', 'true');
         sessionStorage.setItem('email', email);
         console.log("se inicio sesion exitosamente");
+        this.router.navigateByUrl('/listado');
       }else {
         console.log("credenciales incorrecta");
       }
